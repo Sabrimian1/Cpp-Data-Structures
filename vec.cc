@@ -12,7 +12,19 @@ namespace sab{
             };
 
             void push_back(T inst){
+                if (current == capacity){
+                    T* temp = new T[capacity * 2]
+                    for(int i = 0; i < capacity; i++){
+                        temp[i] = ptr[i];
+                    }
 
+                    delete [] ptr;
+                    capacity *= 2;
+                    ptr = temp;
+                }
+
+                ptr[current] = inst;
+                current++;
             };
 
             void get_total{
