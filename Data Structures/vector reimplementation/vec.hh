@@ -14,6 +14,10 @@ namespace sab{
                 current = 0;
             };
 
+            ~Vector(){
+                delete [] ptr;
+            }
+
             void push_back(T inst){
                 if (current == capacity){
                     T* temp = new T[capacity * 2];
