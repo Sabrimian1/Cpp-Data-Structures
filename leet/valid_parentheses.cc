@@ -4,14 +4,16 @@ public:
         stack<char> stack;
         
         for(int i = 0; i < s.size(); i++){
-            if (s[i] =="(" || s[i] == "{" || s[i] == "["){
+            if (s[i] =='(' || s[i] == '{' || s[i] == '['){
                 stack.push(s[i]);
-            }else if(s[i] == ")" && !stack.empty() && stack.top("(")){
+            }else if(s[i] == ')' && !stack.empty() && stack.top() == '('){
                 stack.pop();
-            }else if(s[i] == "}" && !stack.empty() && stack.top("{")){
+            }else if(s[i] == '}' && !stack.empty() && stack.top() == '{'){
                 stack.pop();
-            }else if(s[i] == "]" && !stack.empty() && stack.top("[")){
+            }else if(s[i] == ']' && !stack.empty() && stack.top() == '['){
                 stack.pop();
+            }else {
+                return false;
             }      
     }
         if(stack.empty()){
